@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 1000px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body {
+    padding: 0 64px;
+}
+
+body > p:last-child {
+    display: none;
+}
+
+table {
+    width: 100%;
+}
+
+table, tbody, tr, td {
+    display: block;
+}
+
+body > table > tbody {
+    position: relative;
+}
+
+body > table > tbody > tr:first-child {
+    display: block;
+    height: 30px;
+    border-bottom: 1px solid #aaa;
+}
+
+body > table > tbody > tr:first-child > td > img {
+    margin: 3px;
+    height: 24px;
+}
+
+body > table > tbody > tr:nth-child(3){
+    position: absolute;
+    top: 0; right: 24px;
+    line-height: 30px;
+}
+
+body > table > tbody > tr:nth-child(2),
+body > table > tbody > tr:nth-child(4),
+.b2heading img,
+blockquote > table > tbody > tr > td:nth-child(3) {
+    display: none;
+}
+
+.b2heading:first-of-type {
+    position: absolute;
+    top: 0px; left: 186px;
+    line-height: 30px;
+}
+
+#puzzleContainer {
+    margin: 8px 0;
+    position: relative;
+}
+
+#puzzleContainer table {
+    display: table;
+}
+
+#puzzleContainer tbody {
+    display: table-row-group;
+}
+
+#puzzleContainer tr {
+    display: table-row;
+}
+
+#puzzleContainer td {
+    display: table-cell;
+}
+
+#puzzleContainer .sbc {
+    position: absolute;
+    top: 50px; right: 8px;
+    width: 240px;
+}
+
+#puzzleContainer .c:nth-of-type(2) {
+    position: absolute;
+    top: 130px; right: 8px;
+}
+
+#puzzleContainer .c:nth-of-type(3) {
+    position: absolute;
+    top: 206px; right: 8px;
+    width: 240px;
+}
+
+#puzzleContainer .c:nth-of-type(3) select {
+    width: 100%;
+}
+
+#puzzleContainer .c:nth-of-type(4) {
+    position: absolute;
+    top: 234px; right: 8px;
+    width: 240px;
+    text-align: left;
+    font-size: 12px;
+}
+
+li {
+    margin-left: 24px;
+}
+
+.unequaltd input {
+    border-radius: 5px;
+}
+
+.unequaltd input.unequals {
+    font-size: 12px;
+}
+
+.unequaltd input:hover {
+    box-shadow: 0 0 6px navy;
+}
+
+.unequaltd input:focus {
+    background-color: #e6f9fd;
+    box-shadow: 0 0 6px navy;
+    outline: none;
+}
