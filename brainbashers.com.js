@@ -4,7 +4,7 @@ fields.forEach((field) => {
     field.addEventListener('keyup', (event) => {
         const id = field.parentElement.id
         const position = parseInt(id.substring(2, 4));
-        changeFocus(getNewPosition(event.keyCode, position, field.selectionStart, field.value.length));
+        changeFocus(getNewPosition(event.keyCode, position, field.selectionStart, field.value.length, field.readOnly));
     });
 });
 
@@ -17,14 +17,14 @@ fields.forEach((field) => {
     });
 });
 
-const getNewPosition = (keyCode, position, caretPosition, inputLength) => {
-    if(keyCode === 37 && caretPosition === 0 ) {
+const getNewPosition = (keyCode, position, caretPosition, inputLength, isReadOnly) => {
+    if(keyCode === 37 && (isReadOnly || caretPosition === 0) ) {
         return position - 1;
     }
     if(keyCode === 38) {
         return position - 10;
     }
-    if(keyCode === 39 && caretPosition === inputLength && caretPosition === previousCaretPositions[position]) {
+    if(keyCode === 39 && (isReadOnly || caretPosition === inputLength && caretPosition === previousCaretPositions[position])) {
         return position + 1;
     }
     if(keyCode === 40) {
