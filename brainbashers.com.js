@@ -2,20 +2,24 @@ const fields = document.querySelectorAll('.unequaltd input');
 const dimension = Math.sqrt(fields.length);
 fields.forEach((field) => {
     field.addEventListener('keyup', (event) => {
-        const id = field.parentElement.id
-        const position = parseInt(id.substring(2, 4));
-        changeFocus(getNewPosition(event.keyCode, position, field.selectionStart, field.value.length, field.readOnly));
+        const position = getCurrentPosition(field);
+        const newPosition = getNewPosition(event.keyCode, position, field.selectionStart, field.value.length, field.readOnly);
+        changeFocus(newPosition);
     });
 });
 
-previousCaretPositions = [];
+const previousCaretPositions = [];
 fields.forEach((field) => {
     field.addEventListener('keydown', () => {
-        const id = field.parentElement.id
-        const position = parseInt(id.substring(2, 4));
+        const position = getCurrentPosition(field);
         previousCaretPositions[position] = field.selectionStart;
     });
 });
+
+const getCurrentPosition = (field) => {
+    const id = field.parentElement.id
+    return parseInt(id.substring(2, 4));
+};
 
 const getNewPosition = (keyCode, position, caretPosition, inputLength, isReadOnly) => {
     if(keyCode === 37 && (isReadOnly || caretPosition === 0) ) {
